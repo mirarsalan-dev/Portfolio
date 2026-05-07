@@ -1,4 +1,5 @@
 import os
+import json
 import firebase_admin
 from firebase_admin import credentials, db # Import db if using Realtime Database, or firestore
 from flask import Flask

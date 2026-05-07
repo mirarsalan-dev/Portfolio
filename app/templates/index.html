@@ -1,0 +1,662 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ========================= HERO SECTION ========================= -->
+<section id="home" class="flex flex-col items-center justify-center min-h-screen text-center space-y-8 reveal opacity-0 translate-y-12 pb-24 pt-12">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm text-slate-300 font-medium shadow-lg hover:border-blue-500/50 transition duration-300 cursor-default">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+        </span>
+        Available for new opportunities
+    </div>
+    
+    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
+        Engineering <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400 type-wrap">
+            <span id="typewriter"></span><span class="animate-pulse text-white">|</span>
+        </span>
+    </h1>
+    
+    <p class="max-w-2xl text-lg text-slate-400 mt-6 leading-relaxed">
+        I am <span class="text-white font-semibold">Arsalan Mir</span>. I build scalable backend architectures, real-time Java network applications, and cloud-integrated utility systems.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <!-- Notice these also use the new # anchor links! -->
+        <a href="#projects" class="px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition duration-300 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:-translate-y-1">
+            Explore My Work
+        </a>
+        <a href="#contact" class="px-8 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold transition duration-300 backdrop-blur-md hover:-translate-y-1">
+            Let's Connect
+        </a>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="mt-16 pt-12 border-t border-white/5 w-full max-w-3xl reveal opacity-0 translate-y-12">
+        <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">Core Technologies</p>
+        <div class="flex flex-wrap justify-center gap-3">
+            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition cursor-default">Python</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition cursor-default">Java / Swing</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition cursor-default">Flask</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition cursor-default">Firebase / SQL</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition cursor-default">HTML / Tailwind CSS</span>
+        </div>
+    </div>
+</section>
+
+<!-- ========================= ABOUT ME (INTRO) ========================= -->
+<section id="about" class="min-h-[80vh] py-24 border-t border-white/5 flex items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center max-w-6xl mx-auto w-full">
+        
+        <!-- Left Column: Profile Image Placeholder -->
+        <div class="lg:col-span-5 relative reveal opacity-0 translate-y-12">
+            <!-- Decorative Background Glow -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-emerald-500 rounded-3xl blur-2xl opacity-20 animate-pulse"></div>
+            
+            <!-- Image Frame -->
+            <div class="relative aspect-square rounded-3xl overflow-hidden border border-white/10 bg-[#090e17] shadow-2xl p-2 group">
+                <div class="w-full h-full bg-white/5 rounded-2xl overflow-hidden relative">
+                    <!-- Placeholder SVG (Replace the src with your actual photo later) -->
+                    <img src="{{ url_for('static', filename='img/profile.jpeg') }}" alt="Arsalan Mir" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 filter grayscale hover:grayscale-0">
+                    
+                    <!-- Tech overlay accent -->
+                    <div class="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg p-2 flex items-center gap-2">
+                        <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
+                        <span class="text-xs text-white font-medium uppercase tracking-wider">Deploying</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Personal Narrative -->
+        <div class="lg:col-span-7 reveal opacity-0 translate-y-12">
+            <h2 class="text-xl font-bold text-blue-500 tracking-widest uppercase mb-3">Who I Am</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Bridging <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Logic & Aesthetics</span></h3>
+            
+            <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                I am an Information Technology Engineering student and independent full-stack developer based in Maharashtra. My passion lies in engineering robust backend architectures and pairing them with premium, highly responsive user interfaces.
+            </p>
+            <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                Whether I am building pure Java socket applications, integrating cloud databases like Firebase, or designing enterprise-grade academic software, my philosophy remains the same: <span class="text-white font-medium">code should be scalable, secure, and beautiful.</span>
+            </p>
+
+            <!-- Quick Facts Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                <div>
+                    <p class="text-sm text-slate-500 font-semibold mb-1">Location</p>
+                    <p class="text-slate-200 font-medium">Nala Sopara, MH</p>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500 font-semibold mb-1">Education</p>
+                    <p class="text-slate-200 font-medium">B.E. Info Tech</p>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500 font-semibold mb-1">Interests</p>
+                    <p class="text-slate-200 font-medium">UI/UX, Modding</p>
+                </div>
+            </div>
+            
+            <!-- Action Button -->
+            <div class="mt-10">
+                <a href="#contact" class="inline-flex items-center gap-2 text-white font-semibold group hover:text-blue-400 transition-colors duration-300">
+                    Get in touch 
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========================= TECH ARSENAL (BENTO BOX) ========================= -->
+<section id="skills" class="py-24 border-t border-white/5">
+    <div class="mb-16 text-center reveal opacity-0 translate-y-12">
+        <h2 class="text-4xl font-extrabold text-white mb-4">Tech <span class="text-blue-400">Arsenal</span></h2>
+        <p class="text-slate-400 text-lg">The tools and frameworks I use to engineer solutions.</p>
+    </div>
+
+    <!-- Bento Box Grid -->
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Backend & Logic (Spans 2 columns on medium screens) -->
+        <div class="md:col-span-2 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-blue-500/30 transition duration-500">
+            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                Core Backend & Logic
+            </h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Python</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Java</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Flask</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Socket Programming</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">ReportLab</span>
+            </div>
+        </div>
+
+        <!-- Database & Cloud -->
+        <div class="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-emerald-500/30 transition duration-500">
+            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                Data & Cloud
+            </h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Firebase RTDB</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">SQL</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">JSON Protocols</span>
+            </div>
+        </div>
+
+        <!-- Frontend & UI -->
+        <div class="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-purple-500/30 transition duration-500">
+            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                Frontend & UI
+            </h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">HTML/CSS</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Tailwind</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Flet (Python UI)</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Java Swing</span>
+            </div>
+        </div>
+
+        <!-- Developer Tools (Spans 2 columns) -->
+        <div class="md:col-span-2 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-amber-500/30 transition duration-500 flex flex-col justify-center">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <h3 class="text-xl font-bold text-white whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Workflow
+                </h3>
+                <div class="h-px w-full bg-white/10 hidden md:block"></div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-3 w-full">
+                    <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Git & GitHub</span>
+                    <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">VS Code</span>
+                    <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-slate-200 font-medium">Postman</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========================= ENGINEERING JOURNEY (TIMELINE) ========================= -->
+<section id="journey" class="py-24 border-t border-white/5">
+    <div class="mb-16 text-center reveal opacity-0 translate-y-12">
+        <h2 class="text-4xl font-extrabold text-white mb-4">My <span class="text-indigo-400">Journey</span></h2>
+        <p class="text-slate-400 text-lg">The academic and technical path that built my foundation.</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="relative border-l border-white/10 ml-3 md:ml-6 space-y-12">
+            
+            <!-- Timeline Node 1: Current / Freelance -->
+            <div class="relative pl-8 md:pl-12 reveal opacity-0 translate-y-12">
+                <!-- Glowing Dot -->
+                <div class="absolute w-5 h-5 bg-blue-500 rounded-full -left-[10.5px] top-1.5 shadow-[0_0_15px_rgba(37,99,235,0.6)] border-4 border-[#090e17]"></div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <h3 class="text-2xl font-bold text-white">Independent Full-Stack Developer</h3>
+                    <span class="text-blue-400 font-semibold text-sm mt-1 md:mt-0 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 w-max">2024 - Present</span>
+                </div>
+                <p class="text-slate-400 leading-relaxed">
+                    Designing and engineering custom solutions for clients. Built dynamic business platforms like Ultra Fitness Center and developed comprehensive desktop network applications utilizing pure Java Socket Programming.
+                </p>
+            </div>
+
+            <!-- Timeline Node 2: Theem College -->
+            <div class="relative pl-8 md:pl-12 reveal opacity-0 translate-y-12">
+                <div class="absolute w-5 h-5 bg-emerald-500 rounded-full -left-[10.5px] top-1.5 shadow-[0_0_15px_rgba(16,185,129,0.6)] border-4 border-[#090e17]"></div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <h3 class="text-2xl font-bold text-white">B.E. Information Technology</h3>
+                    <span class="text-emerald-400 font-semibold text-sm mt-1 md:mt-0 px-3 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20 w-max">In Progress</span>
+                </div>
+                <h4 class="text-lg font-medium text-slate-300 mb-3">Theem College of Engineering</h4>
+                <p class="text-slate-400 leading-relaxed">
+                    Specializing in software engineering, backend architectures, and database management. Developed the role-based Academic Grade System with Firebase integration as part of advanced coursework.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========================= FEATURED HIGHLIGHTS ========================= -->
+<section id="highlights" class="min-h-screen py-24 border-t border-white/5">
+    <div class="mb-12 reveal opacity-0 translate-y-12">
+        <h2 class="text-4xl font-extrabold text-white mb-4">Featured <span class="text-emerald-400">Highlights</span></h2>
+        <p class="text-slate-400 text-lg">Deep dives into enterprise architectures and cross-platform tools.</p>
+    </div>
+
+    <!-- Balanced 3-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- Highlight 1: Theem Func Gen (Now spans 1 column to match the others) -->
+        <div class="group relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md transition-all duration-500 overflow-hidden reveal opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_8px_40px_-12px_rgba(16,185,129,0.3)] hover:border-emerald-500/50 flex flex-col h-full">
+            <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition duration-500 z-0">
+                <svg class="w-24 h-24 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <!-- Abstract Card Header -->
+            <div class="h-40 -mx-8 -mt-8 mb-8 bg-gradient-to-br from-[#090e17] to-emerald-900/40 border-b border-emerald-500/20 relative overflow-hidden flex items-center justify-center">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
+                <svg class="w-16 h-16 text-emerald-400/50 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            </div>
+            <div class="relative z-10 flex flex-col h-full">
+                <div>
+                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider rounded-full border border-emerald-500/30 mb-4 inline-block">Cloud Architecture</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">Academic Grade System</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed group-hover:text-slate-200 transition duration-300 flex-grow">
+                        Engineered a robust, role-based Student Grade Card Generator utilizing Firebase Realtime Database. Transitioned the system from basic terminal text outputs to generating professional, fully formatted PDF reports via Python's ReportLab.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">Python</span>
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">Firebase</span>
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">ReportLab</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlight 2: Cross Platform / Flet -->
+        <div class="group relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md transition-all duration-500 overflow-hidden reveal opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_8px_40px_-12px_rgba(59,130,246,0.3)] hover:border-blue-500/50 flex flex-col h-full">
+            <div class="h-40 -mx-8 -mt-8 mb-8 bg-gradient-to-br from-[#090e17] to-blue-900/40 border-b border-blue-500/20 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
+                <svg class="w-16 h-16 text-blue-400/50 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <div class="relative z-10 flex flex-col h-full">
+                <div>
+                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider rounded-full border border-blue-500/30 mb-4 inline-block">Cross-Platform</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">EVM Simulator</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed group-hover:text-slate-200 transition duration-300 flex-grow">
+                        A cross-platform educational application demonstrating election processes. Built entirely using the Python Flet framework for native UI rendering, complete with state management and Firebase authentication.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">Flet UI</span>
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">State Management</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlight 3: Client Web Design -->
+        <div class="group relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md transition-all duration-500 overflow-hidden reveal opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_8px_40px_-12px_rgba(168,85,247,0.3)] hover:border-purple-500/50 flex flex-col h-full">
+            <div class="h-40 -mx-8 -mt-8 mb-8 bg-gradient-to-br from-[#090e17] to-purple-900/40 border-b border-purple-500/20 relative overflow-hidden flex items-center justify-center">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
+    <svg class="w-16 h-16 text-purple-400/50 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+</div>
+            <div class="relative z-10 flex flex-col h-full">
+                <div>
+                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-wider rounded-full border border-purple-500/30 mb-4 inline-block">Client UI/UX</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">Ultra Fitness Platform</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed group-hover:text-slate-200 transition duration-300 flex-grow">
+                        Designed and deployed a dynamic business presence for Ultra Fitness Center. Implemented modern HTML/CSS aesthetics alongside custom JavaScript business logic, including a real-time BMI calculator.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">HTML/CSS</span>
+                    <span class="text-xs font-medium text-slate-400 bg-black/20 px-3 py-1.5 rounded-lg border border-white/5">JavaScript Logic</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Full-Width Deep Dive: Java Network Architecture -->
+    <div class="mt-8 group relative bg-[#090e17] border border-white/10 rounded-3xl p-8 md:p-12 transition-all duration-500 overflow-hidden reveal opacity-0 translate-y-12 hover:border-indigo-500/50 hover:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.2)]">
+        
+        <!-- Background Accents -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-900/20 to-transparent z-0 pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider rounded-full border border-indigo-500/30 mb-6 inline-block">Desktop & Network Engineering</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-4">ChatOff Messenger</h3>
+                <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                    A high-performance, multithreaded desktop chat application engineered entirely in pure Java. Bypassing high-level web frameworks, this project relies on raw Socket Programming and custom JSON protocols for real-time, bidirectional client-server communication.
+                </p>
+                <ul class="space-y-3 mb-8 text-slate-300">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Custom Java Swing GUI integration
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Secure Login/Signup routing to dedicated Admin Panels
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Low-latency JSON data parsing
+                    </li>
+                </ul>
+                <div class="flex gap-3">
+                    <span class="text-sm font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-lg">Java Socket</span>
+                    <span class="text-sm font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-lg">Java Swing</span>
+                    <span class="text-sm font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-lg">JSON</span>
+                </div>
+            </div>
+            
+            <!-- Code/Terminal Visualizer -->
+            <div class="bg-[#05080f] rounded-2xl border border-white/5 p-4 font-mono text-sm shadow-2xl relative overflow-hidden group-hover:border-indigo-500/30 transition duration-500">
+                <div class="flex gap-2 mb-4 border-b border-white/5 pb-4">
+                    <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                </div>
+                <div class="text-slate-400 space-y-2 overflow-x-auto pb-2">
+                    <p><span class="text-indigo-400">Server</span><span class="text-white">.start(</span><span class="text-emerald-300">8080</span><span class="text-white">);</span></p>
+                    <p class="text-slate-500">// Listening for incoming connections...</p>
+                    <p><span class="text-rose-400">Client</span> connected: <span class="text-amber-300">192.168.1.45</span></p>
+                    <p>Parsing JSON payload...</p>
+                    <p><span class="text-emerald-400">Auth Success:</span> Routing to <span class="text-blue-300">main.py -> Login Screen -> Super Admin Panel</span></p>
+                    <p class="text-slate-500">// Establishing active chat thread</p>
+                    <p>Socket stream initialized.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================= PROJECTS SECTION ========================= -->
+<section id="projects" class="min-h-screen py-24 border-t border-white/5">
+    <div class="mb-12 reveal opacity-0 translate-y-12">
+        <h2 class="text-4xl font-extrabold text-white mb-4">GitHub <span class="text-blue-400">Repositories</span></h2>
+        <p class="text-slate-400 text-lg">Automatically synced with my latest engineering work on GitHub.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {% if projects %}
+            {% for project in projects %}
+<!-- Upgraded Project Card with Group Hover -->
+<div class="group relative bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md transition-all duration-500 flex flex-col h-full reveal opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_8px_40px_-12px_rgba(59,130,246,0.4)] hover:border-blue-500/50 hover:bg-white/10 overflow-hidden z-10">
+    
+    <!-- Subtle gradient wash that appears on hover -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[-1]"></div>
+
+    <!-- The rest of your card content stays the exact same -->
+    <div class="flex justify-between items-start mb-4 gap-4">
+        <h3 class="text-2xl font-bold text-white capitalize">{{ project.name | replace('-', ' ') | replace('_', ' ') }}</h3>
+        {% if project.language %}
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-full border border-blue-500/30 whitespace-nowrap">{{ project.language }}</span>
+        {% endif %}
+    </div>
+    
+    <p class="text-slate-300 mb-6 leading-relaxed flex-grow group-hover:text-white transition-colors duration-300">
+        {{ project.description if project.description else "No description provided. Check out the source code for more details." }}
+    </p>
+    
+    <div class="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-white/10 group-hover:border-white/20 transition-colors duration-300">
+        <a href="{{ project.html_url }}" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-blue-400 group-hover:text-blue-300 transition flex items-center gap-1">View Source &rarr;</a>
+        <div class="ml-auto flex gap-3 text-xs text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+            <span title="Stars">⭐ {{ project.stargazers_count }}</span>
+            <span title="Forks">🍴 {{ project.forks_count }}</span>
+        </div>
+    </div>
+</div>
+{% endfor %}
+        {% else %}
+            <div class="col-span-1 md:col-span-2 text-center py-12 bg-white/5 rounded-2xl border border-white/10">
+                <p class="text-slate-400 text-lg">Could not load repositories at this time.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- ========================= TECHNICAL RESEARCH & AESTHETICS ========================= -->
+<section id="research" class="py-24 border-t border-white/5 relative overflow-hidden">
+    <div class="mb-16 text-center reveal opacity-0 translate-y-12">
+        <h2 class="text-4xl font-extrabold text-white mb-4">Research & <span class="text-cyan-400">Aesthetics</span></h2>
+        <p class="text-slate-400 text-lg">Exploring advanced UI/UX concepts and high-fidelity digital rendering.</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Advanced GUI & Threading Card -->
+        <div class="group relative bg-white/5 border border-white/10 rounded-3xl overflow-hidden reveal opacity-0 translate-y-12 h-[400px]">
+            <!-- Subtle gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090e17] via-[#090e17]/70 to-transparent z-10"></div>
+            
+            <div class="absolute inset-0 bg-cyan-900/20 group-hover:scale-105 transition-transform duration-700">
+                 <!-- Abstract tech pattern -->
+                 <div class="w-full h-full opacity-30" style="background-image: linear-gradient(to right, #22d3ee 1px, transparent 1px), linear-gradient(to bottom, #22d3ee 1px, transparent 1px); background-size: 40px 40px;"></div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-wider rounded-full border border-cyan-500/30 mb-3 inline-block">UI Architecture</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Asynchronous GUI Engineering</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Designing modular, enterprise-grade desktop interfaces utilizing Python and CustomTkinter. Implementing strict multithreading protocols to ensure complex glassmorphism UI elements remain perfectly responsive and non-blocking during heavy backend cloud syncs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Digital Cinematography Card (Kept from previous) -->
+        <div class="group relative bg-white/5 border border-white/10 rounded-3xl overflow-hidden reveal opacity-0 translate-y-12 h-[400px]">
+            <!-- Subtle gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090e17] via-[#090e17]/70 to-transparent z-10"></div>
+            
+            <div class="absolute inset-0 bg-amber-900/20 group-hover:scale-105 transition-transform duration-700">
+                 <div class="w-full h-full bg-gradient-to-br from-amber-500/10 to-transparent"></div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/30 mb-3 inline-block">Automotive Aesthetics</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Cinematic Digital Art</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Generating and refining high-end automotive imagery (specifically BMW series). Focused on mastering professional lighting techniques, glass reflections, and simulating professional camera lenses (e.g., Sony A1, 85mm f1.4).
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========================= RESUME CTA ========================= -->
+<section class="py-24 border-t border-white/5 relative overflow-hidden flex items-center justify-center">
+    <!-- Deep glowing background specific to this section -->
+    <div class="absolute inset-0 bg-blue-600/5 mix-blend-screen"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none z-[-1]"></div>
+
+    <div class="max-w-4xl mx-auto px-4 text-center reveal opacity-0 translate-y-12 relative z-10">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Want the full picture?</h2>
+        <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+            Download my complete resume to see a detailed breakdown of my academic coursework, technical certifications, and full project history.
+        </p>
+        
+        <!-- Replace the href with your actual PDF route or link later -->
+        <a href="{{ url_for('main.download_resume') }}" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition duration-300 shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_50px_rgba(37,99,235,0.6)] hover:-translate-y-1">
+            <svg class="w-6 h-6 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            Download Resume .PDF
+        </a>
+    </div>
+</section>
+
+<!-- Animated Stats Card -->
+<div class="group relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md transition-all duration-500 overflow-hidden reveal opacity-0 translate-y-12 hover:border-blue-500/50 hover:shadow-[0_8px_40px_-12px_rgba(59,130,246,0.2)]">
+    
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider rounded-full border border-blue-500/30 mb-2 inline-block">Analytics</span>
+            <h3 class="text-2xl font-bold text-white">Development Activity</h3>
+        </div>
+    </div>
+
+    <!-- The Canvas where the chart will render -->
+    <div class="relative w-full h-[300px]">
+        <canvas id="portfolioChart"></canvas>
+    </div>
+</div>
+
+<!-- ========================= CONTACT SECTION ========================= -->
+<section id="contact" class="min-h-[80vh] py-24 border-t border-white/5 flex flex-col items-center justify-center reveal opacity-0 translate-y-12">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Let's <span class="text-blue-400">Connect</span></h2>
+        <p class="text-slate-400 text-lg">Whether you want to discuss backend architectures, Java development, or new opportunities, my inbox is open.</p>
+    </div>
+
+    <div class="w-full max-w-3xl space-y-4">
+        <!-- Email Link -->
+        <a href="mailto:mirarsalan2006@gmail.com" class="group flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md transition duration-300 hover:bg-emerald-500/10 hover:border-emerald-500/50">
+            <div class="flex items-center gap-6">
+                <div class="p-4 bg-white/10 rounded-full group-hover:bg-emerald-500/20 group-hover:text-emerald-400 text-slate-300 transition">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-xl font-bold text-white mb-1">Email</h3>
+                    <p class="text-slate-400">Drop me a line anytime</p>
+                </div>
+            </div>
+            <span class="text-slate-500 group-hover:text-emerald-400 transition">&rarr;</span>
+        </a>
+
+        <!-- LinkedIn Link -->
+        <a href="https://www.linkedin.com/in/arsalan-mir-573465331" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md transition duration-300 hover:bg-blue-500/10 hover:border-blue-500/50">
+            <div class="flex items-center gap-6">
+                <div class="p-4 bg-white/10 rounded-full group-hover:bg-blue-500/20 group-hover:text-blue-400 text-slate-300 transition">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-xl font-bold text-white mb-1">LinkedIn</h3>
+                    <p class="text-slate-400">Let's connect professionally</p>
+                </div>
+            </div>
+            <span class="text-slate-500 group-hover:text-blue-400 transition">&rarr;</span>
+        </a>
+
+        <!-- GitHub Link -->
+        <a href="https://github.com/mirarsalan2006-ship-it" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md transition duration-300 hover:bg-white/10 hover:border-white/50">
+            <div class="flex items-center gap-6">
+                <div class="p-4 bg-white/10 rounded-full group-hover:bg-white/20 group-hover:text-white text-slate-300 transition">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-xl font-bold text-white mb-1">GitHub</h3>
+                    <p class="text-slate-400">View my open-source code</p>
+                </div>
+            </div>
+            <span class="text-slate-500 group-hover:text-white transition">&rarr;</span>
+        </a>
+    </div>
+</section>
+
+<!-- Typewriter JavaScript -->
+<script>
+    const words = ["Robust Logic.", "Real-Time Systems.", "Custom UI/UX.", "Cloud Integrations."];
+    let i = 0;
+    let timer;
+
+    function typingEffect() {
+        let word = words[i].split("");
+        var loopTyping = function() {
+            if (word.length > 0) {
+                document.getElementById('typewriter').innerHTML += word.shift();
+            } else {
+                deletingEffect();
+                return false;
+            };
+            timer = setTimeout(loopTyping, 100); 
+        };
+        loopTyping();
+    };
+
+    function deletingEffect() {
+        let word = words[i].split("");
+        var loopDeleting = function() {
+            if (word.length > 0) {
+                word.pop();
+                document.getElementById('typewriter').innerHTML = word.join("");
+            } else {
+                if (words.length > (i + 1)) {
+                    i++;
+                } else {
+                    i = 0;
+                };
+                typingEffect();
+                return false;
+            };
+            timer = setTimeout(loopDeleting, 50); 
+        };
+        setTimeout(loopDeleting, 2000); 
+    };
+
+    typingEffect();
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const ctx = document.getElementById('portfolioChart').getContext('2d');
+
+        // Create a subtle gradient for the area under the line
+        let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)'); // Tailwind Blue-500
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)'); 
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Commits & Contributions',
+                    data: [12, 19, 15, 25, 22, 30],
+                    borderColor: '#3b82f6', // Solid Blue line
+                    backgroundColor: gradient, // Gradient fill
+                    borderWidth: 3,
+                    pointBackgroundColor: '#10b981', // Emerald points
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    fill: true,
+                    tension: 0.4 // Creates a smooth curve
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    y: {
+                        duration: 2000, // 2-second smooth load animation
+                        easing: 'easeInOutQuart'
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false // Hides the default legend for a cleaner UI
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(9, 14, 23, 0.9)',
+                        titleColor: '#fff',
+                        bodyColor: '#cbd5e1',
+                        borderColor: 'rgba(255,255,255,0.1)',
+                        borderWidth: 1,
+                        padding: 12,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)', // Faint grid lines
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: '#94a3b8' // Slate-400 text
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)',
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: '#94a3b8',
+                            stepSize: 10
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -677,20 +677,32 @@
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
-    // ⚠️ IMPORTANT: Put your actual GitHub username here
-    const githubUsername = 'YOUR_GITHUB_USERNAME'; 
-    
     try {
-        // 1. Fetch raw data from GitHub API
+        // 1. Fetch raw data from the Flask backend
         const response = await fetch('/api/github-activity');
         const events = await response.json();
 
-        // 2. Process data to count commits per day (Last 10 active days)
+        // Prevent crashes if the API hit a rate limit or returned empty
+        if (!Array.isArray(events) || events.length === 0) {
+            throw new Error("No data returned from API");
+        }
+
+        // 2. Process data to count commits per day
         const commitCounts = {};
         events.forEach(event => {
             if (event.type === 'PushEvent') {
                 const date = event.created_at.split('T')[0]; // Extract YYYY-MM-DD
-                const commits = event.payload.commits ? event.payload.commits.length : 0;
+                
+                // FIX: Adapt to GitHub's late-2025 API changes
+                let commits = 0;
+                if (event.payload.commits) {
+                    commits = event.payload.commits.length; // Legacy support
+                } else if (event.payload.size !== undefined) {
+                    commits = event.payload.size; // New standard
+                } else {
+                    commits = 1; // Fallback: count the push action itself
+                }
+                
                 commitCounts[date] = (commitCounts[date] || 0) + commits;
             }
         });
@@ -699,14 +711,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         const sortedDates = Object.keys(commitCounts).sort();
         const labels = sortedDates.map(date => {
             const d = new Date(date);
-            return `${d.toLocaleString('default', { month: 'short' })} ${d.getDate()}`; // e.g. "May 9"
+            return `${d.toLocaleString('default', { month: 'short' })} ${d.getDate()}`; 
         });
         const dataPoints = sortedDates.map(date => commitCounts[date]);
 
         // 4. Draw the Glowing Graph
         const ctx = document.getElementById('githubActivityChart').getContext('2d');
         
-        // Create a custom gradient for that premium macOS look
+        // Custom gradient for the macOS look
         const gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, 'rgba(52, 211, 153, 0.4)'); // Emerald 400
         gradient.addColorStop(1, 'rgba(52, 211, 153, 0.0)'); 
@@ -718,11 +730,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 datasets: [{
                     label: 'Commits',
                     data: dataPoints,
-                    borderColor: '#34d399', // Emerald 400
+                    borderColor: '#34d399', 
                     borderWidth: 3,
                     backgroundColor: gradient,
                     fill: true,
-                    tension: 0.4, // This makes the line curved and smooth
+                    tension: 0.4, // Smooth curves
                     pointBackgroundColor: '#090e17',
                     pointBorderColor: '#34d399',
                     pointBorderWidth: 2,
@@ -760,9 +772,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     } catch (error) {
         console.error("Failed to fetch GitHub activity:", error);
-        // Fallback text if GitHub API blocks the request
-        document.getElementById('githubActivityChart').parentElement.innerHTML = 
-            '<div class="text-slate-500 flex h-full items-center justify-center">Unable to load live data.</div>';
+        
+        // Graceful fallback UI that matches your theme if data fails to load
+        const chartContainer = document.getElementById('githubActivityChart').parentElement;
+        chartContainer.innerHTML = '<div class="text-slate-500 text-sm font-medium flex h-full items-center justify-center border border-dashed border-white/10 rounded-xl">Awaiting new commit data...</div>';
     }
 });
 </script>

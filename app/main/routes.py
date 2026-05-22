@@ -6,14 +6,15 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
+from flask import jsonify
 
 main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def home():
     # --- Your existing GitHub API Logic remains exactly the same ---
-    github_username = "mirarsalan2006-ship-it" 
-    url = f"https://api.github.com/users/mirarsalan2006-ship-it/repos"
+    github_username = "mirarsalan-dev" 
+    url = f"https://api.github.com/users/mirarsalan-dev/repos"
     github_token = os.getenv('GITHUB_TOKEN')
     
     headers = {}
@@ -51,7 +52,7 @@ def download_resume():
     # 1. Header Section
     Story.append(Paragraph("<b>Arsalan Mir</b>", title_style))
     Story.append(Paragraph("Full-Stack Developer | Python, Java, Flask, Flet", body_style))
-    Story.append(Paragraph("Nala Sopara, Maharashtra | mirarsalan2006@gmail.com | https://api.github.com/users/mirarsalan2006-ship-it/", body_style))
+    Story.append(Paragraph("Nala Sopara, Maharashtra | mirarsalan2006@gmail.com | https://api.github.com/users/mirarsalan-dev/", body_style))
     Story.append(Spacer(1, 16))
 
     # 2. Profile Summary
@@ -90,3 +91,23 @@ def download_resume():
         download_name='Arsalan_Mir_Resume.pdf',
         mimetype='application/pdf'
     )
+
+@main_bp.route('/api/github-activity')
+@main_bp.route('/api/github-activity')
+def github_activity():
+    github_username = "mirarsalan-dev"
+    # FIX: Dropped '/public' to allow private commits, added '?per_page=100' for maximum history
+    url = f"https://api.github.com/users/{github_username}/events?per_page=100"
+    github_token = os.getenv('GITHUB_TOKEN')
+    
+    headers = {}
+    if github_token:
+        headers['Authorization'] = f'token {github_token}'
+        
+    try:
+        response = requests.get(url, headers=headers, timeout=5)
+        response.raise_for_status()
+        return jsonify(response.json())
+    except requests.RequestException as e:
+        print(f"Error fetching GitHub events: {e}")
+        return jsonify([])

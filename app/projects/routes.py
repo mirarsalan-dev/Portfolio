@@ -6,8 +6,8 @@ projects_bp = Blueprint('projects', __name__)
 
 @projects_bp.route('/')
 def showcase():
-    github_username = "mirarsalan2006-ship-it" 
-    url = f"https://api.github.com/users/mirarsalan2006-ship-it/repos"
+    github_username = "mirarsalan-dev" 
+    url = f"https://api.github.com/users/mirarsalan-dev /repos"
     
     # Securely load the token from your .env file
     github_token = os.getenv('GITHUB_TOKEN')

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[80vh] py-12">
+    
+    <div class="mb-16 text-center reveal opacity-0 translate-y-12">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">What I <span class="text-blue-400">Use</span></h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            A comprehensive look at the hardware, software, and creative gear I use daily to engineer software and render digital art.
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-blue-500/30 transition-all duration-500">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-white/5">
+                <div class="p-3 bg-blue-500/10 rounded-xl text-blue-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white">The Workstation</h3>
+            </div>
+            
+            <ul class="space-y-6">
+                <li class="flex flex-col md:flex-row md:items-start gap-4">
+                    <span class="text-white font-bold min-w-[150px] mt-1">Lenovo LOQ</span>
+                    <div>
+                        <p class="text-slate-400 text-sm leading-relaxed">My primary development machine. Actively maintained with custom fan curve optimizations and thermal management protocols to prevent thermal throttling during heavy local ML model rendering and prolonged multithreaded compile times.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-emerald-500/30 transition-all duration-500">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-white/5">
+                <div class="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Editor & Terminal</h3>
+            </div>
+            
+            <ul class="space-y-6">
+                <li class="flex flex-col md:flex-row md:items-start gap-4">
+                    <span class="text-white font-bold min-w-[150px] mt-1">VS Code (Dark)</span>
+                    <p class="text-slate-400 text-sm leading-relaxed">Configured with high-contrast, distraction-free dark themes. Extension stack optimized for Python linting, Jinja2 templating, and live JSON payload debugging.</p>
+                </li>
+                <li class="flex flex-col md:flex-row md:items-start gap-4">
+                    <span class="text-white font-bold min-w-[150px] mt-1">UI Frameworks</span>
+                    <p class="text-slate-400 text-sm leading-relaxed">Extensive daily use of <strong>CustomTkinter</strong> and <strong>Flet</strong> for rapid, native desktop prototyping, alongside Tailwind CSS for fluid web architectures.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md reveal opacity-0 translate-y-12 hover:border-amber-500/30 transition-all duration-500">
+    <div class="flex items-center gap-4 mb-8 pb-4 border-b border-white/5">
+        <div class="p-3 bg-amber-500/10 rounded-xl text-amber-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white">AI & Cloud Ecosystem</h3>
+    </div>
+    
+    <ul class="space-y-6">
+        <li class="flex flex-col md:flex-row md:items-start gap-4">
+            <span class="text-white font-bold min-w-[150px] mt-1">AI Pro & Prompting</span>
+            <p class="text-slate-400 text-sm leading-relaxed">Leveraging advanced prompt engineering techniques within a high-capacity 5TB AI Pro environment. This accelerates boilerplate backend coding, structures complex database schemas, and optimizes my deployment workflows.</p>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-start gap-4">
+            <span class="text-white font-bold min-w-[150px] mt-1">Hosting & Data</span>
+            <p class="text-slate-400 text-sm leading-relaxed">Relying on Firebase Firestore and Realtime Database for persistent, secure data storage. For web architectures, I utilize automated build logs and deployment pipelines across Render and Vercel.</p>
+        </li>
+    </ul>
+</div>
+        
+    </div>
+</div>
+{% endblock %}

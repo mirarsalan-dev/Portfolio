@@ -33,6 +33,11 @@ def home():
 
     return render_template('index.html', projects=repos)
 
+@main_bp.app_errorhandler(404)
+def page_not_found(e):
+    # render a template specifically for 404s
+    return render_template('404.html'), 404
+
 # --- NEW: Dynamic Resume Generation Route ---
 @main_bp.route('/download-resume')
 def download_resume():
@@ -111,3 +116,43 @@ def github_activity():
     except requests.RequestException as e:
         print(f"Error fetching GitHub events: {e}")
         return jsonify([])
+        
+# --- NEW: Public Resume API Route ---
+@main_bp.route('/api/resume')
+def api_resume():
+    """Returns a JSON payload of the developer's resume."""
+    resume_data = {
+        "developer": "Arsalan Mir",
+        "status": "Available for opportunities",
+        "location": "Maharashtra, India",
+        "education": {
+            "degree": "B.E. Information Technology",
+            "institution": "Theem College of Engineering",
+            "status": "In Progress"
+        },
+        "tech_stack": {
+            "backend": ["Python", "Java", "Flask", "Socket Programming"],
+            "frontend": ["HTML/CSS", "Tailwind", "Flet", "Java Swing"],
+            "database": ["Firebase RTDB", "SQL", "JSON Protocols"]
+        },
+        "recent_roles": [
+            {
+                "title": "Frontend Development Intern",
+                "company": "CodeAlpha",
+                "date": "July 2026"
+            },
+            {
+                "title": "Web Developer Intern",
+                "company": "Codec Technologies",
+                "date": "Dec 2025 - Jan 2026"
+            }
+        ],
+        "message": "Send a POST request to https://formspree.io/f/xpqbjqqp to get in touch."
+    }
+    
+    # jsonify automatically sets the correct application/json headers
+    return jsonify(resume_data)
+
+@main_bp.route('/uses')
+def uses():
+    return render_template('uses.html')

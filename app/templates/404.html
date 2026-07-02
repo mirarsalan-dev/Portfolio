@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[80vh] flex items-center justify-center px-4">
+    
+    <div class="w-full max-w-3xl bg-[#05080f] rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden font-mono relative group">
+        
+        <div class="flex items-center px-4 py-3 bg-white/5 border-b border-white/10 relative">
+            <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-rose-500 shadow-[0_0_10px_rgba(244,63,94,0.5)]"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 text-xs text-slate-500 font-medium">
+                arsalan@mainframe: ~
+            </div>
+        </div>
+
+        <div class="p-6 md:p-8 min-h-[350px] relative">
+            <div id="terminal-content" class="text-emerald-400 text-sm md:text-base leading-loose">
+                </div>
+            <span id="cursor" class="inline-block w-2.5 h-5 bg-emerald-400 animate-pulse ml-1 align-middle hidden"></span>
+
+            <div id="terminal-action" class="mt-8 opacity-0 transition-opacity duration-1000 hidden">
+                <a href="{{ url_for('main.home') }}" class="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-lg hover:bg-emerald-500/20 transition-all font-sans font-semibold text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Init System Reboot (Return Home)
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-500 mix-blend-overlay"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const contentDiv = document.getElementById('terminal-content');
+        const cursor = document.getElementById('cursor');
+        const actionBtn = document.getElementById('terminal-action');
+        
+        // The script to type out
+        const lines = [
+            "Establishing connection to server...",
+            "<span class='text-amber-400'>[WARN] Packet loss detected.</span>",
+            "Scanning directory structure...",
+            "<span class='text-rose-400'>[ERROR 404] Directory not found on this server.</span>",
+            "The requested URL was not found in the routing table.",
+            "Attempting to dump stack trace...",
+            "Stack trace failed. Awaiting user input to resolve."
+        ];
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        let isTag = false;
+        let currentHTML = "";
+
+        cursor.classList.remove('hidden'); // Show cursor
+
+        function typeLine() {
+            if (lineIndex < lines.length) {
+                const currentLine = lines[lineIndex];
+                
+                if (charIndex < currentLine.length) {
+                    const char = currentLine.charAt(charIndex);
+                    
+                    // Handle HTML tags so they parse immediately instead of typing out slowly
+                    if (char === '<') isTag = true;
+                    currentHTML += char;
+                    if (char === '>') isTag = false;
+
+                    contentDiv.innerHTML = currentHTML;
+                    charIndex++;
+
+                    // Type faster if we are inside an HTML tag
+                    const speed = isTag ? 0 : Math.random() * 30 + 20;
+                    setTimeout(typeLine, speed);
+                } else {
+                    // Line finished, add line break and pause before next line
+                    currentHTML += "<br>";
+                    lineIndex++;
+                    charIndex = 0;
+                    setTimeout(typeLine, 500);
+                }
+            } else {
+                // Done typing all lines
+                setTimeout(() => {
+                    actionBtn.classList.remove('hidden');
+                    // Small delay to trigger CSS fade in
+                    setTimeout(() => actionBtn.classList.remove('opacity-0'), 50);
+                }, 500);
+            }
+        }
+
+        // Start animation after a slight delay
+        setTimeout(typeLine, 600);
+    });
+</script>
+{% endblock %}
